@@ -1,0 +1,81 @@
+.giving-image-container img {
+  position: relative;
+  top: 150px;
+  width: 100%;
+  height: 300px;
+  z-index: -1;
+  margin-bottom: 7%;
+  object-fit: cover;
+}
+
+.giving-text {
+  font-family: Aurora;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  position: relative;
+  z-index: -1;
+  font-size: 180%;
+  bottom: 130px;
+}
+.online-giving {
+  font-family: Montserrat;
+  border-radius: 10px;
+  background: linear-gradient(rgb(255, 115, 0), rgb(255, 98, 0));
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 7% 30% 0 30%;
+}
+.pay-with-card {
+  font-size: 100%;
+}
+.giving-details {
+  font-family: Montserrat;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 5%;
+  margin-bottom: 10%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+}
+.offering,
+.tithe,
+.seed,
+.project {
+  color: rgb(255, 255, 255);
+  background: white;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+  background-image: linear-gradient(
+      rgba(0, 170, 255, 0.804),
+      rgba(0, 0, 100, 0.912)
+    ),
+    url("./Papa-b.webp");
+  background-size: contain;
+}
+.details {
+  font-size: 130%;
+  padding: 10% 0 10% 0;
+}
+.account-number {
+  font-weight: 700;
+}
+@media screen and (max-width: 800px) {
+  .giving-image-container img {
+  }
+  .giving-details {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5%;
+    margin-bottom: 35%;
+  }
+  .giving-text {
+    bottom: 80px;
+  }
+  .online-giving {
+    margin-top: 20%;
+  }
+}

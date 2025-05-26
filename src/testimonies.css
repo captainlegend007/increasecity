@@ -1,0 +1,29 @@
+.testimonies-parent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: -15px 4% 4%;
+  position: relative;
+  top: 50%;
+  gap: 2rem;
+  font-family: Montserrat;
+}
+.iframe-parent {
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.iframe-parent iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  border: none;
+  border-radius: 3%;
+}
+
+@media screen and (max-width: 800px) {
+  .testimonies-parent {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

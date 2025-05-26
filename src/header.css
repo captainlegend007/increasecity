@@ -1,0 +1,231 @@
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+body {
+  overflow: scroll;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+a:-webkit-any-link {
+  color: inherit;
+  text-decoration: none;
+}
+.image-background {
+  position: relative;
+  height: 937px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+.image-text {
+  font-family: Montserrat;
+  position: absolute;
+  color: white;
+  text-align: center;
+  margin-bottom: 100px;
+  width: 80%;
+}
+.image-text h2 {
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 55px;
+  word-spacing: -10px;
+  text-align: center;
+}
+.image-text h3 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  position: relative;
+  top: 30px;
+}
+.top-menu-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  font-family: Montserrat;
+  font-weight: 500;
+  background-color: rgb(255, 255, 255);
+  height: 70px;
+  width: 90%;
+  margin-top: 30px;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+  z-index: 1;
+  transition: all 1s ease-in-out;
+}
+.list-items {
+  text-align: center;
+  position: relative;
+  top: 25px;
+  font-size: 100%;
+}
+
+.list-items-b {
+  position: relative;
+  font-size: 15px;
+  bottom: 10px;
+  display: none;
+  text-align: left;
+  width: 90%;
+  margin-top: 100px;
+}
+
+.list-items-b ul {
+  margin: 0 0 20px 0;
+}
+.list-items li {
+  display: inline;
+  margin: 0 2% 0 2%;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.list-items li:hover {
+  color: rgb(43, 80, 226);
+}
+.church-logo {
+  position: absolute;
+  display: block;
+  top: 15px;
+  width: 40px;
+  left: 10%;
+}
+.menu {
+  display: none;
+  width: 20px;
+  position: absolute;
+  right: 10%;
+  top: 25px;
+}
+.give-parent {
+  padding-left: 2%;
+}
+.arrow-up {
+  position: absolute;
+  left: 93%;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.arrow-up:hover {
+  transition: all 0.5s ease-in-out;
+  rotate: 180deg;
+}
+.arrow {
+  font-size: 70%;
+  padding: 0 8px 0 0;
+  transform: rotate(180deg);
+  transition: all 0.5s ease-in-out;
+}
+.arrow-b {
+  color: rgb(43, 80, 226);
+  font-size: 70%;
+  padding: 0 0px 0 8px;
+  transform: rotate(0deg);
+  transition: all 0.5s ease-in-out;
+}
+img.image-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+hr {
+  margin: 0 20px 0 40px;
+  position: relative;
+  bottom: 15px;
+  font-size: 0;
+  line-height: 0;
+}
+.e-church-drop-down {
+  font-family: Montserrat;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 13%;
+  left: 20%;
+  border-radius: 10px;
+  z-index: 99;
+  transition: all 0.5s ease-in-out;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.give-drop-down {
+  font-family: Montserrat;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 13%;
+  left: 57%;
+  border-radius: 10px;
+  z-index: 99;
+  transition: all 0.5s ease-in-out;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.e-church-child {
+  font-size: 85%;
+  list-style: none;
+  position: relative;
+  right: 9%;
+  line-height: 40px;
+  font-weight: 500;
+  transition: all 0.5s ease-in-out;
+}
+.give-child {
+  font-size: 85%;
+  list-style: none;
+  position: relative;
+  right: 20%;
+  line-height: 40px;
+  font-weight: 500;
+  padding-right: 1%;
+  transition: all 0.5s ease-in-out;
+}
+
+.e-church-child li:hover {
+  cursor: pointer;
+  font-size: 95%;
+  color: rgb(43, 80, 226);
+  transition: all 0.5s ease-in-out;
+}
+.give-child li:hover {
+  cursor: pointer;
+  font-size: 95%;
+  color: rgb(43, 80, 226);
+  transition: all 0.5s ease-in-out;
+}
+@media only screen and (max-width: 1000px) {
+  .header {
+    height: 70px;
+  }
+  .list-items {
+    display: none;
+  }
+  .menu {
+    display: block;
+    cursor: pointer;
+  }
+  .list-items-b {
+    display: block;
+    margin-left: 2%;
+  }
+  .list-items-b ul:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}

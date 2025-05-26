@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /search
+Allow: /programs
+Allow: /giving
+Allow: /testimonies
+Allow: /programs
