@@ -106,3 +106,8 @@
     right: 0;
   }
 }
+@media only screen and (max-width: 600px) {
+  .subscribe-body {
+    margin: 0 2% 0 2%;
+  }
+}

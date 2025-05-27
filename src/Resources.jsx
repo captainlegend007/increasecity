@@ -1,4 +1,4 @@
-import Image from "../assets/Papa7.jpg";
+import Image from "../assets/Papa-i.webp";
 import "./resources.css";
 import { resourcesSource } from "./ResourcesSource";
 

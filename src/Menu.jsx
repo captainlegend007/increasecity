@@ -13,17 +13,23 @@ const Menu = () => {
   const [headerHeight, setHeaderHeight] = useState("70px");
   const [echurchVisibility, setechurchVisibility] = useState(false);
   const [giveDropDown, setGiveDropDown] = useState(false);
+  const [echurchDropDown, setEchurchDropDown] = useState(false);
   const { pathname } = useLocation();
 
   const toggleMenu = () => {
     setvisiblity(!visiblity);
     visiblity === true ? setHeaderHeight("auto") : setHeaderHeight("70px");
+    setEchurchDropDown(false);
+    setGiveVisiblity(true);
   };
 
   const toggleGiveMenu = () => {
     setGiveVisiblity(!giveVisiblity);
   };
 
+  const toggleEchurchMenu = () => {
+    setEchurchDropDown(!echurchDropDown);
+  };
   const toggleGiveDropDown = () => {
     setGiveDropDown(!giveDropDown);
     setechurchVisibility(false);
@@ -115,8 +121,30 @@ const Menu = () => {
         ) : (
           <div className="list-items-b">
             <Link to="/">
-              <ul>E-Church</ul>
+              <ul onClick={toggleEchurchMenu}>
+                E-Church
+                <FontAwesomeIcon
+                  icon={faAngleUp}
+                  alt="angle-up-icon"
+                  className="arrow-up"
+                />{" "}
+              </ul>
             </Link>
+
+            <div
+              className="e-church-parent"
+              style={{ display: echurchDropDown ? "block" : "none" }}
+            >
+              {" "}
+              <hr />
+              <ul>Prayer Request</ul>
+              <hr />
+              <ul>First Timer</ul>
+              <hr />
+              <ul>Feedback</ul>
+              <hr />
+              <ul>Share your Testimony</ul>
+            </div>
             <hr />
             <Link to="/testimonies">
               <ul>Testimonies</ul>
@@ -126,7 +154,6 @@ const Menu = () => {
               <ul>Resources</ul>
             </Link>
             <hr />
-
             <ul onClick={toggleGiveMenu}>
               Give{" "}
               <FontAwesomeIcon
@@ -135,7 +162,6 @@ const Menu = () => {
                 className="arrow-up"
               />
             </ul>
-
             <hr />
             {giveVisiblity ? (
               ""

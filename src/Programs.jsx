@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import Image1 from "../assets/Papa-c.webp";
 import Image2 from "../assets/Papa-b.webp";
 import Image3 from "../assets/Papa-j.webp";
+import "./program.css";
 
 const Programs = () => {
   const settings = {
@@ -11,7 +12,7 @@ const Programs = () => {
     centerPadding: "15%",
     adaptiveHeight: true,
     adaptiveWidth: true,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
     dots: true,
@@ -40,7 +41,7 @@ const Programs = () => {
             <img src={Image2} className="program-image" alt="program-image-b" />
           </div>
           <div className="program-div">
-            <img src={Image3} className="program-image" alt="program-image-c" />
+            <img src={Image} className="program-image" alt="program-image-c" />
           </div>
         </Slider>
       </div>
