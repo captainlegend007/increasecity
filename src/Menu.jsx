@@ -138,7 +138,7 @@ const Menu = () => {
               {" "}
               <hr />
               <Link to="/echurch/prayer-request">
-                <ul>Prayer Request</ul>
+                <ul>Prayer Requests</ul>
               </Link>
               <hr />
               <Link to="/echurch/first-timers">
@@ -202,7 +202,7 @@ const Menu = () => {
       >
         <ul className="e-church-child">
           <Link to="/echurch/prayer-request">
-            <li>Prayer Request</li>
+            <li>Prayer Requests</li>
           </Link>
           <Link to="/echurch/first-timers">
             <li>First Timer</li>
