@@ -235,11 +235,11 @@ hr {
 @media only screen and (max-width: 600px) {
   .image-background {
     position: relative;
-    height: 600px;
+    height: 670px;
   }
   .image-text {
     width: 100%;
-    top: 180px;
+    top: 230px;
   }
   .image-text h2 {
     font-size: 45px;
@@ -251,5 +251,6 @@ hr {
     font-size: 25px;
     font-weight: 600;
     top: 35px;
+    color: red;
   }
 }
