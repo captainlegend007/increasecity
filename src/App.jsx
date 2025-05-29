@@ -1,10 +1,11 @@
 import React, { Suspense } from "react";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
-import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import Menu from "./Menu";
 import PrayerRequest from "./PrayerRequest";
+import EChurchTestimonies from "./EChurchTestimonies";
+import FirstTimer from "./FirstTimer";
 
 const Giving = React.lazy(() => import("./Giving"));
 const Testimonies = React.lazy(() => import("./Testimonies"));
@@ -19,6 +20,11 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Header />} />
           <Route path="/echurch/prayer-request" element={<PrayerRequest />} />
+          <Route
+            path="/echurch/share-your-testimonies"
+            element={<EChurchTestimonies />}
+          />
+          <Route path="/echurch/first-timers" element={<FirstTimer />} />
           <Route path="/giving" element={<Giving />} />
           <Route path="/testimonies" element={<Testimonies />} />
           <Route path="/resources" element={<Resources />} />

@@ -137,13 +137,19 @@ const Menu = () => {
             >
               {" "}
               <hr />
-              <ul>Prayer Request</ul>
+              <Link to="/echurch/prayer-request">
+                <ul>Prayer Request</ul>
+              </Link>
               <hr />
-              <ul>First Timer</ul>
+              <Link to="/echurch/first-timers">
+                <ul>First Timer</ul>
+              </Link>
               <hr />
               <ul>Feedback</ul>
               <hr />
-              <ul>Share your Testimony</ul>
+              <Link to="/echurch/share-your-testimonies">
+                <ul>Share your Testimony</ul>
+              </Link>
             </div>
             <hr />
             <Link to="/testimonies">
@@ -198,9 +204,13 @@ const Menu = () => {
           <Link to="/echurch/prayer-request">
             <li>Prayer Request</li>
           </Link>
-          <li>First Timer</li>
+          <Link to="/echurch/first-timers">
+            <li>First Timer</li>
+          </Link>
           <li>Feedback</li>
-          <li>Share your Testimony</li>
+          <Link to="/echurch/share-your-testimonies">
+            <li>Share your Testimony</li>
+          </Link>
         </ul>
       </div>
 
