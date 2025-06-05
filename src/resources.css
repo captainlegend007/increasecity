@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Spoof;
+  src: url("../assets/fonts/Spoof-Regular.ttf");
+}
+
 .video-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -25,7 +30,7 @@ iframe {
 .message-title {
   text-align: center;
   font-size: 150%;
-  font-family: Montserrat;
+  font-family: Spoof;
   position: relative;
   top: -10px;
 }

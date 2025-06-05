@@ -78,11 +78,11 @@ const Menu = () => {
             className="first-echurch"
             onClick={() => toggleEchurch(false)}
             onMouseEnter={toggleEchurch}
-            onMouseLeave={() =>
-              setTimeout(() => {
-                toggleEchurch(false);
-              }, 2000)
-            }
+            // onMouseLeave={() =>
+            //   setTimeout(() => {
+            //     toggleEchurch(false);
+            //   }, 2000)
+            // }
           >
             E-Church
             <FontAwesomeIcon
@@ -120,16 +120,14 @@ const Menu = () => {
           ""
         ) : (
           <div className="list-items-b">
-            <Link to="/">
-              <ul onClick={toggleEchurchMenu}>
-                E-Church
-                <FontAwesomeIcon
-                  icon={faAngleUp}
-                  alt="angle-up-icon"
-                  className="arrow-up"
-                />{" "}
-              </ul>
-            </Link>
+            <ul onClick={toggleEchurchMenu}>
+              E-Church
+              <FontAwesomeIcon
+                icon={faAngleUp}
+                alt="angle-up-icon"
+                className="arrow-up"
+              />{" "}
+            </ul>
 
             <div
               className="e-church-parent"
@@ -144,8 +142,6 @@ const Menu = () => {
               <Link to="/echurch/first-timers">
                 <ul>First Timer</ul>
               </Link>
-              <hr />
-              <ul>Feedback</ul>
               <hr />
               <Link to="/echurch/share-your-testimonies">
                 <ul>Share your Testimony</ul>
@@ -207,7 +203,7 @@ const Menu = () => {
           <Link to="/echurch/first-timers">
             <li>First Timer</li>
           </Link>
-          <li>Feedback</li>
+
           <Link to="/echurch/share-your-testimonies">
             <li>Share your Testimony</li>
           </Link>

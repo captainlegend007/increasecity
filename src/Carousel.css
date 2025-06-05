@@ -1,3 +1,11 @@
+@font-face {
+  font-family: Montserrat;
+  src: url("../assets/fonts/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: Aurora;
+  src: url("../assets/fonts/Aurora\ 2.otf");
+}
 .slider-container {
   text-align: center;
   position: absolute;

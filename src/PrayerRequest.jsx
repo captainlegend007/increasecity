@@ -10,34 +10,36 @@ const PrayerRequest = () => {
   const [number, setNumber] = useState("");
   const [prayer, setPrayer] = useState("");
 
-  const sendFormData = (event) => {
+  const sendFormData = async (event) => {
     event.preventDefault();
     const data = {
       name,
       prayer,
       number,
     };
-    console.log(data);
-    setName("");
-    setNumber("");
-    setPrayer("");
-
-    axios
-      .post("http://localhost:5000/echurch/prayer-request", data)
-      .then((res) => {
-        if (res.status === 200) {
-          swal("Good job!", "You clicked the button!", "success");
-        }
-
-        console.log("Form Submitted", res);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
+    try {
+      await axios
+        .post("http://localhost:5000/echurch/prayer-request", data)
+        .then((res) => {
+          if (res.status === 200) {
+            {
+              swal(
+                "Thank you!",
+                "You submitted your prayer successfully!",
+                "success"
+              );
+              setName("");
+              setNumber("");
+              setPrayer("");
+            }
+          }
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>
-      {swal("Good job!", "You clicked the button!", "success")}
       <div className="giving-image-container">
         <div className="sub">
           <img src={Image} loading="lazy" alt="giving-image" />

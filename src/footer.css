@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Montserrat;
+  src: url("../assets/fonts/Montserrat-Regular.ttf");
+}
+
 .footer-background {
   font-family: montserrat;
   position: relative;

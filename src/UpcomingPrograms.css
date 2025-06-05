@@ -1,5 +1,10 @@
+@font-face {
+  font-family: Spoof;
+  src: url("../assets/fonts/Spoof-Regular.ttf");
+}
+
 .calendar-parent {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Spoof;
   margin-top: 100px;
   text-align: center;
   color: white;
