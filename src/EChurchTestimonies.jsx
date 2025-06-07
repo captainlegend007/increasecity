@@ -17,7 +17,10 @@ const EChurchTestimonies = () => {
 
     try {
       await axios
-        .post("http://localhost:5000/echurch/share-your-testimonies", data)
+        .post(
+          "https://increasecity-backend.vercel.app/echurch/share-your-testimonies",
+          data
+        )
         .then((res) => {
           if (res.status === 200) {
             {

@@ -19,7 +19,10 @@ const PrayerRequest = () => {
     };
     try {
       await axios
-        .post("http://localhost:5000/echurch/prayer-request", data)
+        .post(
+          "https://increasecity-backend.vercel.app/echurch/prayer-request",
+          data
+        )
         .then((res) => {
           if (res.status === 200) {
             {
