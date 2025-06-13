@@ -86,7 +86,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="footer-ruler">Copyright 2025</div>
+        <Link to="/admin">
+          <div className="footer-ruler">Copyright 2025</div>
+        </Link>
       </div>
     </div>
   );

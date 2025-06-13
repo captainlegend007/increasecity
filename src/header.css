@@ -5,13 +5,13 @@
 
 html {
   overflow: scroll;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   margin: 0;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 0;
-} */
+}
 body {
   overflow: scroll;
   /* overflow-x: hidden; */

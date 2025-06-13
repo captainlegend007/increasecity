@@ -24,9 +24,11 @@ const EChurchTestimonies = () => {
         .then((res) => {
           if (res.status === 200) {
             {
-              "Thank you!",
+              swal(
+                "Thank you!",
                 "You submitted your testimony successfully!",
-                "success";
+                "success"
+              );
               setName("");
               setNumber("");
               setTestimony("");
