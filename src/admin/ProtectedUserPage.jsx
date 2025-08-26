@@ -19,7 +19,7 @@ const ProtectedUserPage = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get("https://increasecity-backend.vercel.app/users");
+        const res = await axios.get("https://increasecity-backend.vercel.app/login");
 
         if (res.data && res.data.status === "success") {
           setAuth(true);
