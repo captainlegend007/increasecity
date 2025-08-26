@@ -1,16 +1,16 @@
-@font-face {
+/* @font-face {
   font-family: Spoof;
   src: url("../assets/fonts/Spoof-Regular.ttf");
-}
+} */
 
 .form {
-  width: 75%;
-  height: 440px;
+  width: 85%;
+  /* height: 440px; */
   background: #efefef;
   border-radius: 8px;
   box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
   margin: calc(50vh - 220px) auto;
-  padding: 20px 30px;
+  padding: 20px 30px 100px;
   max-width: calc(100vw - 40px);
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
@@ -31,7 +31,7 @@
   outline: none;
   resize: none;
   border: 0;
-  font-family: Spoof;
+  /* font-family: Spoof; */
   transition: all 0.3s;
   border-bottom: 2px solid #bebed2;
 }
@@ -56,6 +56,7 @@ p:before {
   color: #5a5a6e;
   cursor: pointer;
   transition: all 0.3s;
+  padding: 3% 10%;
 }
 .send-message:hover {
   background: #78788c;

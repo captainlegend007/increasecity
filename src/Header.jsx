@@ -29,11 +29,7 @@ const Header = () => {
           <h2 loading="eager">{text[imageCount][2]}</h2>
         </div>
         <Carousel imageSlide={imageSlide} />
-        <img
-          src={Images[imageCount]}
-          className="image-content"
-          alt="homepage-image"
-        />
+        <img src={Images[imageCount]} className="image-content" alt="homepage-image" />
       </div>
       <SubHeader />
     </div>

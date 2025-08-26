@@ -15,18 +15,18 @@ const AdminLogin = ({ userAuthentication, mongoDb }) => {
     axios.defaults.withCredentials = true;
 
     try {
-      await axios.post("http://localhost:5000/login", data).then((res) => {
-        console.log(res.data.values);
-        if (res.data.status === "success") {
-          alert("Valid User");
-          // userAuthentication(true);
-          // mongoDb(res.data);
-          // alert(res.data);
-          navigate("/legend");
-        } else {
-          alert("Unauthorized User");
-        }
-      });
+      await axios
+        .post("https://increasecity-backend.vercel.app/login", data)
+        .then((res) => {
+          console.log(res.data.values);
+          if (res.data.status === "success") {
+            alert("Valid User");
+            // userAuthentication(true);
+            navigate("/legend");
+          } else {
+            alert("Unauthorized User");
+          }
+        });
     } catch (error) {
       console.log(error);
     }

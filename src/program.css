@@ -1,3 +1,81 @@
 .upcoming-programs {
   margin: 0 5% 10% 5%;
 }
+
+.increase-celebration-parent {
+  margin-top: 10%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-family: Inter;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20%;
+}
+.youre-invited {
+  font-size: 25px;
+  font-weight: 600;
+}
+.ic2025-main-text {
+  font-size: 40px;
+  font-weight: 700;
+}
+.icimage {
+  background: linear-gradient(rgba(0, 170, 255, 0.804), rgba(0, 0, 100, 0.912));
+  /* height: 200px; */
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+}
+.icimage-text {
+  color: white;
+  padding: 20%;
+  font-size: 25px;
+}
+/* .ictext-parent {
+  background-color: rebeccapurple;
+} */
+.ic2025-sub-text {
+  font-size: 20px;
+  font-family: Montserrat;
+}
+.register-parent {
+  background-color: rgb(0, 136, 255);
+  position: absolute;
+  padding: 2% 5% 2% 5%;
+  display: flex;
+  margin-top: 1%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.register-button:hover {
+  opacity: 0.8;
+}
+.register-button {
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.button-icon {
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
+}
+@media only screen and (max-width: 500px) {
+  .increase-celebration-parent {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 20%;
+    margin-bottom: 30%;
+  }
+  .register-parent {
+    margin-top: 5%;
+    border-radius: 50px;
+  }
+  .register-button {
+    font-size: 15px;
+  }
+}

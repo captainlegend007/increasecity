@@ -1,4 +1,10 @@
 .admin {
-  margin-top: 20%;
+  margin-top: 150px;
   margin-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+html {
+  font-family: Montserrat;
 }

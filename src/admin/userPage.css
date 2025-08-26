@@ -1,0 +1,99 @@
+.registration-parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 5% 0 5% 0;
+  background-color: rgb(221, 221, 221);
+  padding: 1% 3% 1% 3%;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+}
+.table-container {
+  margin-bottom: 10%;
+}
+.parent-sub {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.overall-details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5%;
+  margin-bottom: 15%;
+}
+.detail-a {
+  border: 1px solid rgb(182, 182, 182);
+  padding: 10%;
+  border-radius: 10px;
+}
+.detail-a:hover {
+  background-color: rgb(0, 35, 151);
+  color: white;
+  cursor: pointer;
+}
+.total-users {
+  font-size: 30px;
+  font-weight: 700;
+}
+.total-sub {
+  font-size: 25px;
+}
+.welcome-text {
+  font-size: 30px;
+}
+.logout-button,
+.refresh-button {
+  padding: 20px 50px 20px 50px;
+  background-color: rgb(0, 35, 151);
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2%;
+}
+.refresh-button {
+  background-color: green;
+}
+.button-parent {
+  display: flex;
+  gap: 50px;
+}
+.login-parent {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 5%;
+  align-items: center;
+}
+.parent-sub-d {
+  font-weight: 900;
+}
+@media only screen and (max-width: 650px) {
+  .overall-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .detail-a {
+    border: 1px solid rgb(182, 182, 182);
+    padding: 10%;
+  }
+  .total-users {
+    font-size: 25px;
+    font-weight: 700;
+  }
+  .total-sub {
+    font-size: 20px;
+  }
+  .login-parent {
+    flex-direction: column;
+  }
+  .parent-sub,
+  .parent-sub-c {
+    font-size: 12px;
+  }
+  .parent-sub-c {
+    position: relative;
+    top: -5px;
+  }
+}

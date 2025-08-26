@@ -1,0 +1,21 @@
+.register-option {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 60px;
+}
+.option-a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0px;
+  margin-bottom: 10%;
+}
+input[type="checkbox"] {
+  padding: 20px;
+  transform: scale(1.5);
+  position: relative;
+  top: 10px;
+}
+.method {
+  padding-left: 20%;
+}

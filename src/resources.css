@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: Spoof;
   src: url("../assets/fonts/Spoof-Regular.ttf");
-}
+} */
 
 .video-container {
   display: grid;
@@ -30,7 +30,7 @@ iframe {
 .message-title {
   text-align: center;
   font-size: 150%;
-  font-family: Spoof;
+  /* font-family: Spoof; */
   position: relative;
   top: -10px;
 }

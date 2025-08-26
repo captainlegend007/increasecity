@@ -54,14 +54,13 @@ const SubHeader = () => {
             <h3 className="church-name">Increase City Church</h3>
             <h3 className="church-text">
               Christ Reign Forever Church of All Nation (Increase City) is a
-              non-denominational/ Inter-denominational ministry designed around
-              a straightforward and strategic process that moves people through
-              the stages of spiritual growth.
+              non-denominational/ Inter-denominational ministry designed around a
+              straightforward and strategic process that moves people through the stages
+              of spiritual growth.
             </h3>
             <h3 className="church-text">
-              Our core values are LOVE, GRACE, INTELLIGENCE & EXCELLENCE. Our
-              Vision is "Reconciling all Nations to GOD by discovering man's
-              purpose".
+              Our core values are LOVE, GRACE, INTELLIGENCE & EXCELLENCE. Our Vision is
+              "Reconciling all Nations to GOD by discovering man's purpose".
             </h3>
           </div>
         </InView>
@@ -80,8 +79,8 @@ const SubHeader = () => {
                 <div className="social-name"> Facebook</div>
                 <div className="about-social">
                   {" "}
-                  Join our Facebook community. Get updates and Watch facebook
-                  stream with any device.
+                  Join our Facebook community. Get updates and Watch facebook stream with
+                  any device.
                 </div>
               </div>
             </Link>
@@ -97,8 +96,8 @@ const SubHeader = () => {
                 <div className="social-name"> Instagram</div>
                 <div className="about-social">
                   {" "}
-                  Join our instagram community to get updates and sermon recap
-                  at the comfort of your device.
+                  Join our instagram community to get updates and sermon recap at the
+                  comfort of your device.
                 </div>
               </div>
             </Link>
@@ -114,8 +113,8 @@ const SubHeader = () => {
                 <div className="social-name"> TikTok</div>
                 <div className="about-social">
                   {" "}
-                  Enjoy service highlights, edifiying contents and lots more on
-                  our TikTok community.
+                  Enjoy service highlights, edifiying contents and lots more on our TikTok
+                  community.
                 </div>
               </div>
             </Link>
@@ -130,8 +129,8 @@ const SubHeader = () => {
               <div className="social-name"> Whatsapp</div>
               <div className="about-social">
                 {" "}
-                Join our whatsapp community. Get livestream links, service
-                highlihts and daily devotionals.
+                Join our whatsapp community. Get livestream links, service highlihts and
+                daily devotionals.
               </div>
             </div>
           </div>

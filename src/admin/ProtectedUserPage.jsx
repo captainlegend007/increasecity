@@ -2,6 +2,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import "./css/main.css";
 import { useEffect, useState } from "react";
+import "./userPage.css";
 
 const ProtectedUserPage = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook
@@ -10,56 +11,77 @@ const ProtectedUserPage = () => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("Checking authorization..."); // Good initial state
   const [userData, setUserData] = useState(null); // Renamed 'db' to 'userData' for clarity and set initial to null
+  const [physicalUserCount, setPhysicalUserCount] = useState(0); // New state for the count
+  const [onlineUserCount, setOnlineUserCount] = useState(0);
 
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/"); // Use await for better async handling
-        console.log("Full API Response Data:", res.data); // Crucial for debugging!
-        console.log("Name from API:", res.data.name); // Directly log the name property
+        const res = await axios.get("https://increasecity-backend.vercel.app/users");
 
-        // *** FIX 1: Change res.status.data to res.data.status ***
         if (res.data && res.data.status === "success") {
           setAuth(true);
           setName(res.data.name || "User"); // Use fallback for name
           setMessage("You are logged in.");
           setUserData(res.data.database); // Store the entire data object
+
+          const physicalCount = res.data.database.filter(
+            (user) => user.physical === "true"
+          ).length;
+          setPhysicalUserCount(physicalCount); // Store the count in state
+
+          // Count users with online attendance
+          const onlineCount = res.data.database.filter(
+            (user) => user.online === "true"
+          ).length;
+          setOnlineUserCount(onlineCount); // Store the count in state
         } else {
           setAuth(false);
-          // Use optional chaining for res.data.message to prevent errors if message is missing
           setMessage(res.data?.message || "You are not authorized.");
-          setName(""); // Clear name if not authorized
+          setName("");
           setUserData(null);
-          // Optional: If not authorized, you might want to navigate to admin/login page
-          // navigate("/admin");
         }
       } catch (err) {
-        // This catches network errors or non-2xx HTTP responses (e.g., 401, 500)
         console.error("Authentication check failed:", err);
         setAuth(false);
         setMessage("Authentication check failed. Please try logging in.");
         setName("");
         setUserData(null);
-        // Optional: If authentication check fails entirely, navigate to admin/login page
-        // navigate("/admin");
       }
     };
     checkAuth();
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
 
-  const handleLogout = async () => {
-    // Use async/await for handleLogout as well
+  const refreshData = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/logout");
+      const res = await axios.get("https://increasecity-backend.vercel.app/users"); // Use await for better async handling
+
       if (res.data && res.data.status === "success") {
-        // Instead of location.reload(true), which forces a full browser reload,
-        // it's often better to navigate programmatically in React or clear global state.
-        // For simplicity, navigate to /admin after logout.
-        navigate("/admin");
-        // Or if you want a full reload for some reason: window.location.reload();
+        setAuth(true);
+        setName(res.data.name || "User"); // Use fallback for name
+        setMessage("You are logged in.");
+        setUserData(res.data.database); // Store the entire data object
       } else {
+        setAuth(false);
+        setMessage(res.data?.message || "You are not authorized.");
+        setName("");
+        setUserData(null);
+      }
+    } catch (err) {
+      console.error("Authentication check failed:", err);
+      setAuth(false);
+      setMessage("Authentication check failed. Please try logging in.");
+      setName("");
+      setUserData(null);
+    }
+  };
+  const handleLogout = async () => {
+    try {
+      const res = await axios.get("https://increasecity-backend.vercel.app/logout");
+      if (res.data && res.data.status === "success") {
+        navigate("/admin");
         alert(res.data?.message || "Logout failed.");
       }
     } catch (err) {
@@ -70,29 +92,68 @@ const ProtectedUserPage = () => {
 
   return (
     <div className="admin">
-      {/* *** FIX 2: Reverse the conditional rendering logic *** */}
       {auth ? (
-        // This block runs IF 'auth' is TRUE (user IS authorized)
         <>
-          <h3>You are authorized! Welcome, {name || "Guest"}!</h3>{" "}
-          {/* Use name and fallback */}
-          {message !== "Checking authorization..." && <p>{message}</p>}{" "}
-          {/* Display login message */}{" "}
-          <button onClick={handleLogout}>Logout</button>
-          {userData && ( // Conditionally render userData if it exists
-            <div>
-              <h4>Your Full Data:</h4>
-              <pre>{JSON.stringify(userData, null, 2)}</pre>{" "}
-              {/* Properly display object */}
+          <div className="login-parent">
+            <h3 className="welcome-text">Welcome, {name || "Guest"}!</h3>
+            <div className="button-parent">
+              <button className="refresh-button" onClick={refreshData}>
+                Refresh
+              </button>{" "}
+              <button className="logout-button" onClick={handleLogout}>
+                Logout
+              </button>
             </div>
+          </div>
+
+          <div className="overall-details">
+            <div className="detail-a">
+              <p className="total-users">Total Registered</p>
+              <p className="total-sub">{userData.length}</p>
+            </div>
+            <div className="detail-a">
+              <p className="total-users">Streaming Online</p>
+              <p className="total-sub">{onlineUserCount}</p>
+            </div>
+            <div className="detail-a">
+              <p className="total-users">Physcial Attendance</p>
+              <p className="total-sub">{physicalUserCount}</p>
+            </div>
+            <div className="detail-a">
+              <p className="total-users">Attending & Paid</p>
+              <p className="total-sub">Null</p>
+            </div>
+          </div>
+          {userData && userData.length > 0 ? (
+            <div className="table-container">
+              {/* Table Header */}
+              <div className="registration-parent">
+                <div className="parent-sub-d">Name</div>
+                <div className="parent-sub-d">Email</div>
+                <div className="parent-sub-d">Mode of Attendance</div>
+              </div>
+              {/* Table Rows (mapped from userData) */}
+              {userData.map((user, index) => (
+                <div key={index} className="registration-parent">
+                  <div className="parent-sub">{user.name}</div>
+                  <div className="parent-sub">0{user.number}</div>
+                  <div className="parent-sub-c">
+                    {user.online === "true" ? (
+                      <p>Streaming</p>
+                    ) : (
+                      user.physical === "true" && <p>Physical</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>No user data available.</p>
           )}
         </>
       ) : (
-        // This block runs IF 'auth' is FALSE (user IS NOT authorized or still checking)
         <div>
           <h3>{message}</h3>{" "}
-          {/* Display "Checking authorization..." or "You are not authorized." */}
-          {/* Show login button only if not authenticated after check completes */}
           {message !== "Checking authorization..." && (
             <Link to="/admin">
               <button>Login</button>

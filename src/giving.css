@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: Montserrat;
-  src: url("../assets/fonts/Montserrat-Regular.ttf");
-}
+  src: url("../assets/fonts/Spoof-Regular.ttf");
+} */
 
 .giving-image-container img {
   position: relative;
@@ -21,6 +21,7 @@
   z-index: -1;
   font-size: 180%;
   bottom: 130px;
+  padding: 2%;
 }
 .online-giving {
   font-family: Montserrat;
@@ -55,10 +56,7 @@
   background: white;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
-  background-image: linear-gradient(
-      rgba(0, 170, 255, 0.804),
-      rgba(0, 0, 100, 0.912)
-    ),
+  background-image: linear-gradient(rgba(0, 170, 255, 0.804), rgba(0, 0, 100, 0.912)),
     url("./Papa-b.webp");
   background-size: contain;
 }
