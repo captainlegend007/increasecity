@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AdminLogin = ({ userAuthentication, mongoDb }) => {
   const [username, setUsername] = useState("");
@@ -9,24 +10,25 @@ const AdminLogin = ({ userAuthentication, mongoDb }) => {
 
   const navigate = useNavigate();
 
+  axios.defaults.withCredentials = true;
   const adminLoginCheck = async (e) => {
     e.preventDefault();
-    const data = { username, password };
-    axios.defaults.withCredentials = true;
-
+    const credentials = { username, password };
     try {
-      await axios
-        .post("https://increasecity-backend.vercel.app/login", data)
-        .then((res) => {
-          console.log(res.data.values);
-          if (res.data.status === "success") {
-            alert("Valid User");
-            // userAuthentication(true);
-            navigate("/legend");
-          } else {
-            alert("Unauthorized User");
-          }
-        });
+      const { data } = await axios.post(
+        "https://increasecity-backend-nu.vercel.app/login",
+        credentials
+      );
+      console.log(data);
+      if (data.success) {
+        toast.success("Login Successful");
+        setTimeout(() => {
+          navigate("/legend");
+        }, 2000);
+        setAuthenticated(true);
+      } else {
+        toast.error("Unauthorized User");
+      }
     } catch (error) {
       console.log(error);
     }

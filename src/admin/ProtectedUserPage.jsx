@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import "./css/main.css";
 import { useEffect, useState } from "react";
 import "./userPage.css";
+import { toast } from "react-toastify";
 
 const ProtectedUserPage = () => {
   const navigate = useNavigate(); // Initialize useNavigate hook
@@ -11,35 +12,25 @@ const ProtectedUserPage = () => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("Checking authorization..."); // Good initial state
   const [userData, setUserData] = useState(null); // Renamed 'db' to 'userData' for clarity and set initial to null
-  const [physicalUserCount, setPhysicalUserCount] = useState(0); // New state for the count
+  const [physicalUserCount, setPhysicalUserCount] = useState(0);
   const [onlineUserCount, setOnlineUserCount] = useState(0);
 
-  axios.defaults.withCredentials = true;
-
   useEffect(() => {
+    axios.defaults.withCredentials = true;
     const checkAuth = async () => {
       try {
-        const res = await axios.get("https://increasecity-backend.vercel.app/login");
+        const { data } = await axios.get(
+          "https://increasecity-backend-nu.vercel.app/users"
+        );
 
-        if (res.data && res.data.status === "success") {
+        if (data.success) {
           setAuth(true);
-          setName(res.data.name || "User"); // Use fallback for name
+          setName(data.name || "User"); // Use fallback for name
           setMessage("You are logged in.");
-          setUserData(res.data.database); // Store the entire data object
-
-          const physicalCount = res.data.database.filter(
-            (user) => user.physical === "true"
-          ).length;
-          setPhysicalUserCount(physicalCount); // Store the count in state
-
-          // Count users with online attendance
-          const onlineCount = res.data.database.filter(
-            (user) => user.online === "true"
-          ).length;
-          setOnlineUserCount(onlineCount); // Store the count in state
+          setUserData(data.database); // Store the entire data object
         } else {
           setAuth(false);
-          setMessage(res.data?.message || "You are not authorized.");
+          setMessage(data?.message || "You are not authorized.");
           setName("");
           setUserData(null);
         }
@@ -56,16 +47,29 @@ const ProtectedUserPage = () => {
 
   const refreshData = async () => {
     try {
-      const res = await axios.get("https://increasecity-backend.vercel.app/users"); // Use await for better async handling
+      const { data } = await axios.get(
+        "https://increasecity-backend-nu.vercel.app/users"
+      ); // Use await for better async handling
 
-      if (res.data && res.data.status === "success") {
+      if (data.success) {
         setAuth(true);
-        setName(res.data.name || "User"); // Use fallback for name
+        setName(data.name || "User"); // Use fallback for name
         setMessage("You are logged in.");
-        setUserData(res.data.database); // Store the entire data object
+        setUserData(data.database); // Store the entire data object
+
+        const physicalCount = res.data.database.filter(
+          (user) => user.physical === "true"
+        ).length;
+        setPhysicalUserCount(physicalCount); // Store the count in state
+
+        // Count users with online attendance
+        const onlineCount = res.data.database.filter(
+          (user) => user.online === "true"
+        ).length;
+        setOnlineUserCount(onlineCount); // Stor
       } else {
         setAuth(false);
-        setMessage(res.data?.message || "You are not authorized.");
+        setMessage(data?.message || "You are not authorized.");
         setName("");
         setUserData(null);
       }
@@ -79,14 +83,16 @@ const ProtectedUserPage = () => {
   };
   const handleLogout = async () => {
     try {
-      const res = await axios.get("https://increasecity-backend.vercel.app/logout");
-      if (res.data && res.data.status === "success") {
+      const { data } = await axios.post(
+        "https://increasecity-backend-nu.vercel.app/logout"
+      );
+      if (data.suscess) {
         navigate("/admin");
-        alert(res.data?.message || "Logout failed.");
+        toast.error(data?.message || "Logout failed.");
       }
     } catch (err) {
       console.error("Logout failed:", err);
-      alert("An error occurred during logout.");
+      toast.error("An error occurred during logout.");
     }
   };
 
@@ -135,15 +141,12 @@ const ProtectedUserPage = () => {
               {/* Table Rows (mapped from userData) */}
               {userData.map((user, index) => (
                 <div key={index} className="registration-parent">
-                  <div className="parent-sub">{user.name}</div>
-                  <div className="parent-sub">0{user.number}</div>
-                  <div className="parent-sub-c">
-                    {user.online === "true" ? (
-                      <p>Streaming</p>
-                    ) : (
-                      user.physical === "true" && <p>Physical</p>
-                    )}
+                  <div className="parent-sub">
+                    {user.firstName} {user.lastName}
                   </div>
+                  <div className="parent-sub">0{user.number}</div>
+                  <div className="parent-sub">{user.attendance}</div>
+                  <div className="parent-sub">{user.gender}</div>
                 </div>
               ))}
             </div>

@@ -17,18 +17,11 @@ const EChurchTestimonies = () => {
 
     try {
       await axios
-        .post(
-          "https://increasecity-backend.vercel.app/echurch/share-your-testimonies",
-          data
-        )
+        .post(" http://localhost:5001/echurch/share-your-testimonies", data)
         .then((res) => {
           if (res.status === 200) {
             {
-              swal(
-                "Thank you!",
-                "You submitted your testimony successfully!",
-                "success"
-              );
+              swal("Thank you!", "You submitted your testimony successfully!", "success");
               setName("");
               setNumber("");
               setTestimony("");

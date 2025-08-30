@@ -19,18 +19,11 @@ const PrayerRequest = () => {
     };
     try {
       await axios
-        .post(
-          "https://increasecity-backend.vercel.app/echurch/prayer-request",
-          data
-        )
+        .post("http://localhost:5001/echurch/prayer-request", data)
         .then((res) => {
           if (res.status === 200) {
             {
-              swal(
-                "Thank you!",
-                "You submitted your prayer successfully!",
-                "success"
-              );
+              swal("Thank you!", "You submitted your prayer successfully!", "success");
               setName("");
               setNumber("");
               setPrayer("");
