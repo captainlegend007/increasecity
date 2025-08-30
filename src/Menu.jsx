@@ -100,10 +100,7 @@ const Menu = () => {
             <li>Resources</li>
           </Link>
 
-          <li
-            onMouseEnter={toggleGiveDropDown}
-            onClick={() => toggleGiveDropDown(false)}
-          >
+          <li onMouseEnter={toggleGiveDropDown} onClick={() => toggleGiveDropDown(false)}>
             Give{" "}
             <FontAwesomeIcon
               icon={faAngleUp}
@@ -135,6 +132,9 @@ const Menu = () => {
             >
               {" "}
               <hr />
+              <Link to="/increase-celebration-registration">
+                <ul>Register for Increase Celebration</ul>
+              </Link>
               <Link to="/echurch/prayer-request">
                 <ul>Prayer Requests</ul>
               </Link>
