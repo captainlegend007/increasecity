@@ -12,12 +12,12 @@ export default defineConfig({
       manifest: {
         name: "christreignministries",
         short_name: "christreignministries",
-        start_url: "/increasecity", //WHen uploading to a paid hosting change to /
+        start_url: "/increasecity/", //WHen uploading to a paid hosting change to /
         display: "standalone",
         theme_color: "#ffffff",
         background_color: "#ffffff",
         lang: "en",
-        scope: "/",
+        scope: "/increasecity/",
         icons: [
           {
             src: "/assets/church logo copy.c056ca46.png",
@@ -38,7 +38,7 @@ export default defineConfig({
           },
         ],
       },
-      mode: "development",
+      mode: "production", //can be developement
       registerType: "autoUpdate",
       injectRegister: "auto",
       devOptions: {
