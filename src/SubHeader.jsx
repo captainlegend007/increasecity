@@ -40,13 +40,13 @@ const SubHeader = () => {
       <div className="sub-grid">
         <div className="image-grid">
           <div>
-            <img src={Image} className="image-1" alt="sub-image-a" />
+            <img loading="lazy" src={Image} className="image-1" alt="sub-image-a" />
           </div>
           <div>
-            <img src={Image2} className="image-1" alt="sub-image-b" />
+            <img loading="lazy" src={Image2} className="image-1" alt="sub-image-b" />
           </div>
           <div>
-            <img src={Image3} className="image-1" alt="sub-image-c" />
+            <img loading="lazy" src={Image3} className="image-1" alt="sub-image-c" />
           </div>
         </div>
         <InView as="div" onChange={(inView) => handleView(inView)}>

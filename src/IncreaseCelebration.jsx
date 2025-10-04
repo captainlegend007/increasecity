@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Image from "../assets/Papa-g.webp";
+import Image from "../assets/IC2025.webp";
 import "./increasecelebration.css";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -12,6 +12,7 @@ const IncreaseCelebration = () => {
   const [number, setNumber] = useState("");
   const [address, setAddress] = useState("");
   const [gender, setGender] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGenderChange = (value) => {
     setGender(value);
@@ -22,15 +23,6 @@ const IncreaseCelebration = () => {
 
   const sendFormData = async (event) => {
     event.preventDefault();
-    const userData = {
-      firstName,
-      lastName,
-      address,
-      gender,
-      email,
-      number,
-      attendance,
-    };
 
     if (
       !firstName ||
@@ -42,27 +34,58 @@ const IncreaseCelebration = () => {
       !attendance
     ) {
       return toast.error("You didn't fill the form completely");
-    } else {
-      try {
-        const { data } = await axios.post(
-          "https://increasecity-backend-nu.vercel.app/registration",
-          userData
-        );
-        if (data.success) {
-          toast.success(data.message);
-          setFirstName("");
-          setLastName("");
-          setAddress("");
-          setEmail("");
-          setNumber("");
-          setAttendance("");
-          setGender("");
-        } else {
-          toast.error(data.message);
-        }
-      } catch (error) {
-        toast.error(error.message);
+    }
+
+    setIsLoading(true);
+    const toastId = toast.loading("Registering...");
+
+    const userData = {
+      firstName,
+      lastName,
+      address,
+      gender,
+      email,
+      number,
+      attendance,
+    };
+
+    try {
+      const { data } = await axios.post(
+        "https://increasecity-backend-nu.vercel.app/registration",
+        userData
+      );
+
+      if (data.success) {
+        toast.update(toastId, {
+          render: data.message,
+          type: "success",
+          isLoading: false,
+          autoClose: 3000,
+        });
+        setFirstName("");
+        setLastName("");
+        setAddress("");
+        setEmail("");
+        setNumber("");
+        setAttendance("");
+        setGender("");
+      } else {
+        toast.update(toastId, {
+          render: data.message || "Registration failed.",
+          type: "error",
+          isLoading: false,
+          autoClose: 3000,
+        });
       }
+    } catch (error) {
+      toast.update(toastId, {
+        render: error.message || "An error occurred.",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
@@ -70,8 +93,8 @@ const IncreaseCelebration = () => {
       <div>
         <div className="giving-image-container">
           <div className="sub">
-            <img src={Image} loading="lazy" alt="giving-image" />
-            <h3 className="giving-text">2025 Increase Celebration Registration</h3>
+            <img loading="lazy" src={Image} alt="giving-image" />
+            {/* <h3 className="giving-text">2025 Increase Celebration Registration</h3> */}
           </div>
         </div>
         <form className="form" onSubmit={sendFormData}>
@@ -183,8 +206,8 @@ const IncreaseCelebration = () => {
               <h3 className="account-number">5811034038</h3>
             </div>
           )}
-          <button className="send-message" type="submit">
-            Register
+          <button className="send-message" type="submit" disabled={isLoading}>
+            {isLoading ? "Registering..." : "Register"}
           </button>
         </form>
       </div>

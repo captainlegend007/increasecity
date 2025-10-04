@@ -20,18 +20,47 @@
   font-size: 40px;
   font-weight: 700;
 }
-.icimage {
+/* .icimage {
   background: linear-gradient(rgba(0, 170, 255, 0.804), rgba(0, 0, 100, 0.912));
-  /* height: 200px; */
+ height: 200px;
   text-align: center;
   color: white;
   border-radius: 10px;
-}
+  position: relative;
+  height: 100px;
+} */
 .icimage-text {
   color: white;
   padding: 20%;
   font-size: 25px;
 }
+/* .ic2025-image {
+  position: absolute;
+  width: 100%;
+} */
+/* --- Original .icimage --- */
+.icimage {
+  background: linear-gradient(rgba(0, 170, 255, 0.804), rgba(0, 0, 100, 0.912));
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  position: relative;
+  /* REMOVED: height: 100px; */
+  /* ADDED: overflow: hidden; to ensure corners are respected */
+  overflow: hidden;
+}
+
+/* --- Original .ic2025-image --- */
+.ic2025-image {
+  /* REMOVED: position: absolute; */
+  width: 100%;
+  /* ADDED: height: auto; to maintain aspect ratio */
+  height: auto;
+  /* ADDED: display: block; to ensure no extra margin/padding issues */
+  display: block;
+}
+/* ... rest of your CSS ... */
+
 /* .ictext-parent {
   background-color: rebeccapurple;
 } */

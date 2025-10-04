@@ -13,17 +13,13 @@ const UpcomingPrograms = () => {
     <div>
       <div className="giving-image-container">
         <div className="sub">
-          <img src={Image} loading="lazy" alt="upcoming-program-image" />
+          <img loading="lazy" src={Image} loading="lazy" alt="upcoming-program-image" />
           <h3 className="giving-text">Upcoming Programs </h3>
         </div>
       </div>
 
       <div className="calendar-parent">
-        <div
-          className="calendar"
-          onMouseEnter={toggleLine}
-          onMouseLeave={toggleLine}
-        >
+        <div className="calendar" onMouseEnter={toggleLine} onMouseLeave={toggleLine}>
           2025 Calendar
         </div>
         <hr className={line ? "line-effect-b" : "line-effect"} />
@@ -42,7 +38,7 @@ const UpcomingPrograms = () => {
                   <div className="month">{data.Month}</div>
                 </div>
                 <div className="cal-a">
-                  <img src={Image} className="speaker-image" />
+                  <img loading="lazy" src={Image} className="speaker-image" />
                 </div>
                 <div className="cal-a">
                   <div className="program-name">{data.Name}</div>
@@ -60,7 +56,7 @@ const UpcomingPrograms = () => {
             <div className="month">November</div>
           </div>
           <div className="cal-a">
-            <img src={Image} className="speaker-image" />
+            <img loading="lazy" src={Image} className="speaker-image" />
           </div>
           <div className="cal-a">
             <div className="program-name">Prayer for all round change</div>

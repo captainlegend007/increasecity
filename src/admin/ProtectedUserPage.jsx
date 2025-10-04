@@ -17,35 +17,10 @@ const ProtectedUserPage = () => {
 
   useEffect(() => {
     axios.defaults.withCredentials = true;
-    const checkAuth = async () => {
-      try {
-        const { data } = await axios.get(
-          "https://increasecity-backend-nu.vercel.app/users"
-        );
-
-        if (data.success) {
-          setAuth(true);
-          setName(data.name || "User"); // Use fallback for name
-          setMessage("You are logged in.");
-          setUserData(data.database); // Store the entire data object
-        } else {
-          setAuth(false);
-          setMessage(data?.message || "You are not authorized.");
-          setName("");
-          setUserData(null);
-        }
-      } catch (err) {
-        console.error("Authentication check failed:", err);
-        setAuth(false);
-        setMessage("Authentication check failed. Please try logging in.");
-        setName("");
-        setUserData(null);
-      }
-    };
     checkAuth();
   }, []);
 
-  const refreshData = async () => {
+  const checkAuth = async () => {
     try {
       const { data } = await axios.get(
         "https://increasecity-backend-nu.vercel.app/users"
@@ -57,14 +32,14 @@ const ProtectedUserPage = () => {
         setMessage("You are logged in.");
         setUserData(data.database); // Store the entire data object
 
-        const physicalCount = res.data.database.filter(
-          (user) => user.physical === "true"
+        const physicalCount = data.database.filter(
+          (user) => user.attendance === "physical"
         ).length;
         setPhysicalUserCount(physicalCount); // Store the count in state
 
         // Count users with online attendance
-        const onlineCount = res.data.database.filter(
-          (user) => user.online === "true"
+        const onlineCount = data.database.filter(
+          (user) => user.attendance === "online"
         ).length;
         setOnlineUserCount(onlineCount); // Stor
       } else {
@@ -86,9 +61,9 @@ const ProtectedUserPage = () => {
       const { data } = await axios.post(
         "https://increasecity-backend-nu.vercel.app/logout"
       );
-      if (data.suscess) {
+      if (data.success) {
         navigate("/admin");
-        toast.error(data?.message || "Logout failed.");
+        toast.success(data.message);
       }
     } catch (err) {
       console.error("Logout failed:", err);
@@ -103,7 +78,7 @@ const ProtectedUserPage = () => {
           <div className="login-parent">
             <h3 className="welcome-text">Welcome, {name || "Guest"}!</h3>
             <div className="button-parent">
-              <button className="refresh-button" onClick={refreshData}>
+              <button className="refresh-button" onClick={checkAuth}>
                 Refresh
               </button>{" "}
               <button className="logout-button" onClick={handleLogout}>
@@ -146,7 +121,7 @@ const ProtectedUserPage = () => {
                   </div>
                   <div className="parent-sub">0{user.number}</div>
                   <div className="parent-sub">{user.attendance}</div>
-                  <div className="parent-sub">{user.gender}</div>
+                  {/* <div className="parent-sub">{user.gender}</div> */}
                 </div>
               ))}
             </div>

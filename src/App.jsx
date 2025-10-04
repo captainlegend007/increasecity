@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, lazy } from "react";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -9,13 +9,14 @@ import FirstTimer from "./FirstTimer";
 import AdminLogin from "./admin/AdminLogin";
 import ProtectedUserPage from "./admin/ProtectedUserPage";
 import IncreaseCelebration from "./IncreaseCelebration";
-import { ToastContainer } from "react-toastify"; // Import ToastContainer
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Giving = React.lazy(() => import("./Giving"));
-const Testimonies = React.lazy(() => import("./Testimonies"));
-const Resources = React.lazy(() => import("./Resources"));
-const UpcomingPrograms = React.lazy(() => import("./UpcomingPrograms"));
+// 🟢 LAZY-LOADED COMPONENTS (Code Splitting)
+const Giving = lazy(() => import("./Giving"));
+const Testimonies = lazy(() => import("./Testimonies"));
+const Resources = lazy(() => import("./Resources"));
+const UpcomingPrograms = lazy(() => import("./UpcomingPrograms"));
 
 const App = () => {
   const [user, setUser] = useState(false);
@@ -27,6 +28,23 @@ const App = () => {
   const mongoDb = (value) => {
     setmongoDbData(value);
   };
+
+  // 🟢 Custom Loading Spinner Component
+  const LoadingFallback = () => (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "calc(100vh - 150px)", // Full height minus header/footer
+        fontSize: "20px",
+        color: "#3498db",
+      }}
+    >
+      Loading Page Content...
+    </div>
+  );
+
   return (
     <div>
       <ToastContainer
@@ -43,8 +61,12 @@ const App = () => {
       />
       <Router>
         <Menu />
-        <Suspense fallback={<div>Loading...</div>}>
+
+        {/* 🟢 Suspense wraps the entire Routes block */}
+        <Suspense fallback={<LoadingFallback />}>
           <Routes>
+            {/* 🟢 Non-lazy components are fine outside Suspense, 
+                 but putting them inside <Routes> wrapped by Suspense is standard. */}
             <Route path="/" element={<Header />} />
             <Route path="/increasecity" element={<Header />} />
             <Route path="/echurch/prayer-request" element={<PrayerRequest />} />
@@ -53,10 +75,13 @@ const App = () => {
               element={<EChurchTestimonies />}
             />
             <Route path="/echurch/first-timers" element={<FirstTimer />} />
+
+            {/* 🟢 Lazy-loaded components are used here */}
             <Route path="/giving" element={<Giving />} />
             <Route path="/testimonies" element={<Testimonies />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/programs" element={<UpcomingPrograms />} />
+
             <Route
               path="/increase-celebration-registration"
               element={<IncreaseCelebration />}
@@ -73,6 +98,7 @@ const App = () => {
             />
           </Routes>
         </Suspense>
+
         <Footer />
       </Router>
     </div>

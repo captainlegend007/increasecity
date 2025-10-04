@@ -38,7 +38,7 @@ const PrayerRequest = () => {
     <div>
       <div className="giving-image-container">
         <div className="sub">
-          <img src={Image} loading="lazy" alt="giving-image" />
+          <img loading="lazy" src={Image} loading="lazy" alt="giving-image" />
           <h3 className="giving-text">Prayer Requests </h3>
         </div>
       </div>

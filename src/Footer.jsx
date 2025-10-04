@@ -16,7 +16,12 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="part-one">
             <div className="container-a">
-              <img src={Icon} className="address-logo" alt="address-icon" />
+              <img
+                loading="lazy"
+                src={Icon}
+                className="address-logo"
+                alt="address-icon"
+              />
               <h3 className="church-address">
                 Charlisco phase 2 off Ekpan Expressway, Warri, Delta State
               </h3>
@@ -76,11 +81,7 @@ const Footer = () => {
                 </h3>
               </div>
               <div className="subscribe-body">
-                <input
-                  type="email"
-                  placeholder="Enter email address"
-                  className="email"
-                />
+                <input type="email" placeholder="Enter email address" className="email" />
                 <button className="subscribe">Subscribe</button>
               </div>
             </div>

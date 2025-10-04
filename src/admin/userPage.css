@@ -59,6 +59,7 @@
 .button-parent {
   display: flex;
   gap: 50px;
+  justify-content: center;
 }
 .login-parent {
   display: flex;

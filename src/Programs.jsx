@@ -5,6 +5,7 @@ import Image3 from "../assets/Papa-j.webp";
 import "./program.css";
 import { FaClipboardCheck, FaRegistered, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import IC2025 from "../assets/IC2025.webp";
 
 const Programs = () => {
   const settings = {
@@ -36,20 +37,21 @@ const Programs = () => {
       <div className="upcoming-programs">
         <Slider {...settings}>
           <div className="program-div">
-            <img src={Image1} className="program-image" alt="program-image-a" />
+            <img loading="lazy" src={Image1} className="program-image" alt="program-image-a" />
           </div>
           <div className="program-div">
-            <img src={Image2} className="program-image" alt="program-image-b" />
+            <img loading="lazy" src={Image2} className="program-image" alt="program-image-b" />
           </div>
           <div className="program-div">
-            <img src={Image} className="program-image" alt="program-image-c" />
+            <img loading="lazy" src={Image} className="program-image" alt="program-image-c" />
           </div>
         </Slider>
       </div> */}
 
       <div className="increase-celebration-parent">
         <div className="icimage">
-          <p className="icimage-text">2025 Increase Celebration</p>
+          {/* <p className="icimage-text">2025 Increase Celebration</p> */}
+          <img loading="lazy" src={IC2025} className="ic2025-image" />
         </div>
         <div className="ictext-parent">
           <div className="ictext-sub-a">

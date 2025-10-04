@@ -22,9 +22,7 @@ const AdminLogin = ({ userAuthentication, mongoDb }) => {
       console.log(data);
       if (data.success) {
         toast.success("Login Successful");
-        setTimeout(() => {
-          navigate("/legend");
-        }, 2000);
+        navigate("/legend");
         setAuthenticated(true);
       } else {
         toast.error("Unauthorized User");

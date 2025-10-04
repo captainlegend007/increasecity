@@ -33,8 +33,7 @@ const Carousel = ({ imageSlide }) => {
     //   console.log("swipe", isLeftSwipe ? "left" : "right");
     // // add your conditional logic here
 
-    if (isLeftSwipe || isRightSwipe)
-      isLeftSwipe ? leftImageChange() : rightImageChange();
+    if (isLeftSwipe || isRightSwipe) isLeftSwipe ? leftImageChange() : rightImageChange();
   };
 
   const rightImageChange = () => {
@@ -106,6 +105,7 @@ const Carousel = ({ imageSlide }) => {
       >
         <div className="image-a-div">
           <img
+            loading="lazy"
             src={Image3}
             className="Image-a"
             alt="carousel-image-a"
@@ -114,6 +114,7 @@ const Carousel = ({ imageSlide }) => {
         </div>
         <div className="image-a-div">
           <img
+            loading="lazy"
             src={Image2}
             className="Image-a"
             alt="carousel-image-b"
@@ -122,6 +123,7 @@ const Carousel = ({ imageSlide }) => {
         </div>
         <div className="image-a-div">
           <img
+            loading="lazy"
             src={Image1}
             className="Image-a"
             alt="carousel-image-c"

@@ -12,7 +12,7 @@ export default defineConfig({
       manifest: {
         name: "christreignministries",
         short_name: "christreignministries",
-        start_url: "/increasecity/", //WHen uploading to a paid hosting change to /
+        start_url: "/increasecity", //WHen uploading to a paid hosting change to /
         display: "standalone",
         theme_color: "#ffffff",
         background_color: "#ffffff",

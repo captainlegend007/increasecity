@@ -64,9 +64,15 @@ const Menu = () => {
       <nav className="header" style={{ height: headerHeight }}>
         <div className="church-icon">
           <Link to="/">
-            <img src={churchLogo} className="church-logo" alt="church-icon" />
+            <img
+              loading="lazy"
+              src={churchLogo}
+              className="church-logo"
+              alt="church-icon"
+            />
           </Link>
           <img
+            loading="lazy"
             src={visiblity ? menu : arrow}
             className="menu"
             onClick={toggleMenu}

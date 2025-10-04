@@ -7,7 +7,7 @@ const Testimonies = () => {
     <div>
       <div className="giving-image-container">
         <div className="sub">
-          <img src={Image} loading="lazy" alt="testimonies-image" />
+          <img loading="lazy" src={Image} loading="lazy" alt="testimonies-image" />
           <h3 className="giving-text">Testimonies </h3>
         </div>
       </div>

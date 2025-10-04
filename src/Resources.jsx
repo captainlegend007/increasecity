@@ -8,7 +8,7 @@ const Resources = () => {
       {" "}
       <div className="giving-image-container">
         <div className="sub">
-          <img src={Image} loading="lazy" alt="giving-image" />
+          <img loading="lazy" src={Image} loading="lazy" alt="giving-image" />
           <h3 className="giving-text">Edifying Contents </h3>
         </div>
 
