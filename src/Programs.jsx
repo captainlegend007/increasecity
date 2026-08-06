@@ -59,12 +59,12 @@ const Programs = () => {
           </div>
 
           <div className="ictext-sub-b">
-            <p className="ic2025-main-text">2025 Increase Celebration Conference</p>
+            <p className="ic2025-main-text">2026 Increase Celebration Conference</p>
           </div>
 
           <div className="ictext-sub-c">
             <p className="ic2025-sub-text">
-              Join us at the 2025 Increase Celebration Conference themed "GOOD SPEED", for
+              Join us at the 2026 Increase Celebration Conference themed "REALITY", for
               a powerful and transformative time in God's presence. This dynamic gathering
               will be a time of healing, miracles and deliverance, where lives will be
               restored, faith ignited and destinies are aligned. Come expecting a fresh
