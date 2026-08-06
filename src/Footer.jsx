@@ -10,7 +10,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const date = new Date();
   return (
+
     <div>
       <div className="footer-background">
         <div className="footer-grid">
@@ -88,7 +90,7 @@ const Footer = () => {
           </div>
         </div>
         <Link to="/admin">
-          <div className="footer-ruler">Copyright 2025</div>
+          <div className="footer-ruler">Copyright {date.getFullYear()}</div>
         </Link>
       </div>
     </div>
